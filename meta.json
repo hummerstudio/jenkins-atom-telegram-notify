@@ -1,0 +1,12 @@
+{
+  "name": "Telegram notification",
+  "summary": "Sends a message through a Telegram bot and reports the message id.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "notification",
+    "telegram"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-telegram-notify"
+}

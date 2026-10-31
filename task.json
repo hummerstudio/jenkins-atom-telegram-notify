@@ -1,0 +1,87 @@
+{
+  "atomCode": "telegram-notify",
+  "name": "Telegram notification",
+  "version": "1.0.0",
+  "description": "Sends a message through a Telegram bot and reports the message id.",
+  "execution": {
+    "packagePath": "telegram-notify.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp telegram-notify.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "token": {
+      "label": "Bot Token",
+      "type": "password",
+      "default": ""
+    },
+    "chatId": {
+      "label": "Chat ID",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "text": {
+      "label": "消息内容",
+      "type": "textarea",
+      "default": ""
+    },
+    "threadId": {
+      "label": "话题 ID（群组话题可选）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "parseMode": {
+      "label": "解析模式（MarkdownV2 / HTML，留空为纯文本）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "silent": {
+      "label": "静默发送",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "disablePreview": {
+      "label": "不展开链接预览",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "apiBase": {
+      "label": "API 地址",
+      "type": "vuex-input",
+      "default": "https://api.telegram.org"
+    },
+    "timeoutSeconds": {
+      "label": "超时（秒）",
+      "type": "vuex-input",
+      "default": "30"
+    },
+    "failOnError": {
+      "label": "发送失败就让这一步失败",
+      "type": "checkbox",
+      "default": "true"
+    }
+  },
+  "output": {
+    "messageId": {
+      "type": "string",
+      "description": "Telegram 返回的消息 id"
+    },
+    "statusCode": {
+      "type": "string",
+      "description": "HTTP 状态码"
+    },
+    "sent": {
+      "type": "string",
+      "description": "是否真的发出去了"
+    },
+    "response": {
+      "type": "string",
+      "description": "响应体摘要"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}
